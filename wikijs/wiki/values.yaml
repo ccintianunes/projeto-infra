@@ -54,8 +54,9 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
+  type: NodePort
   port: 80
+  targedPort: 3306
   # Annotations applied for services such as externalDNS or
   # service type LoadBalancer
   # type: LoadBalancer
@@ -167,7 +168,7 @@ postgresql:
   persistence:
     ## Enable PostgreSQL persistence using Persistent Volume Claims.
     ##
-    enabled: true
+    enabled: false
     ## concourse data Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
