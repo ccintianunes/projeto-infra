@@ -35,8 +35,4 @@ spec:
   ports:
     - port: 80
       targetPort: 80
-<<<<<<< HEAD
       nodePort: 31000
-=======
-      nodePort: 31000 
->>>>>>> 75e6fcc6de7d504b0a08a8360e34aef985e90a13
