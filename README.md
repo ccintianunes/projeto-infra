@@ -34,7 +34,7 @@ Ele irá criar os seguintes pods:
 
 ![image](https://github.com/ccintianunes/projeto-infra/assets/110416764/6cc4bef3-ba60-4f71-874b-c260caf174fe)
 
-**4. Habilitando o Serviço**
+**4. Configurando Variaveis de ambiente**
 
 Para que o serviço fique disponínel faça as seguintes alterações no documento *value.yaml*
 
