@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: artifactory-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: artifactory-exporter
+  template:
+    metadata:
+      labels:
+        app: artifactory-exporter
+    spec:
+      containers:
+        - name: artifactory-exporter
+          image: jfrog/artifactory-exporter-oss:7.6.3 
+          args:
+            - "-artifactory.url=http://10.7.53.172:8081
+"  # Substitua pela URL do seu servidor Artifactory
+          ports:
+            - containerPort: 8081
