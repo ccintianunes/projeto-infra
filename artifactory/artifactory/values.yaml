@@ -500,7 +500,7 @@ artifactory:
   #  accessModes:
   #   - "-"
   #  size:
-  #  storageClassName:
+  storageClassName: standard
 
   ## Artifactory license.
   license:
@@ -740,7 +740,8 @@ artifactory:
   annotations: {}
   service:
     name: artifactory
-    type: ClusterIP
+    type: NodePort
+    targetPort: 80
     ## For supporting whitelist on the Artifactory service (useful if setting service.type=LoadBalancer)
     ## Set this to a list of IP CIDR ranges
     ## Example: loadBalancerSourceRanges: ['10.10.10.5/32', '10.11.10.5/32']
@@ -749,7 +750,7 @@ artifactory:
     loadBalancerSourceRanges: []
     annotations: {}
     ## If the type is NodePort you can set a fixed port
-    # nodePort: 32082
+    nodePort: 32082
   statefulset:
     annotations: {}
   ## The following setting are to configure a dedicated Ingress object for Replicator service
@@ -1630,7 +1631,8 @@ nginx:
 
   service:
     ## For minikube, set this to NodePort, elsewhere use LoadBalancer
-    type: LoadBalancer
+    type: NodePort
+    targetPort: 8006
     ssloffload: false
     ## For supporting whitelist on the Nginx LoadBalancer service
     ## Set this to a list of IP CIDR ranges
@@ -1747,13 +1749,13 @@ waitForDatabase: true
 ## Configuration values for the PostgreSQL dependency sub-chart
 ## ref: https://github.com/bitnami/charts/blob/master/bitnami/postgresql/README.md
 postgresql:
-  enabled: true
+  enabled: false
   image:
     registry: releases-docker.jfrog.io
     repository: bitnami/postgresql
     tag: 13.10.0-debian-11-r14
   postgresqlUsername: artifactory
-  postgresqlPassword: ""
+  postgresqlPassword: "teste"
   postgresqlDatabase: artifactory
   postgresqlExtendedConf:
     listenAddresses: "*"
@@ -1799,9 +1801,9 @@ database:
   url:
   ## If you would like this chart to create the secret containing the db
   ## password, use these values
-  user:
-  password:
-  ## If you have existing Kubernetes secrets containing db credentials, use
+  user: admin
+  password: admin
+## If you have existing Kubernetes secrets containing db credentials, use
   ## these values
   secrets: {}
   #  user:
