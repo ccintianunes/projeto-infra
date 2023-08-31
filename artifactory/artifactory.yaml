@@ -26,7 +26,7 @@ spec:
       volumes:
         - name: artifactory-data
           persistentVolumeClaim:
-            claimName: artifactory-data-pvc
+            claimName: artifactory-pvc
 ---
 apiVersion: v1
 kind: Service
