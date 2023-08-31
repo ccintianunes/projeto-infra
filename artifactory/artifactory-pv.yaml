@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: artifactory-data-pv
+spec:
+  capacity:
+    storage: 10Gi  # Defina o tamanho necessário
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /path/to/host/storage 
+

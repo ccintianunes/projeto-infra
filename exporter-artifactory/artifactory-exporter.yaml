@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: artifactory-exporter
-          image: jfrog/artifactory-exporter:latest
+          image: peimanja/artifactory_exporter:latest
           args:
             - "-artifactory.url=http://10.7.53.172:8081
 "  # Substitua pela URL do seu servidor Artifactory
