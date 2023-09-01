@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: artifactory
-          image: docker.bintray.io/jfrog/artifactory-oss:7.3.6
+          image: docker.bintray.io/jfrog/artifactory-oss:7.6.3
           ports:
             - containerPort: 8081
           env:
